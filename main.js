@@ -28,10 +28,10 @@ const sushiSection = document.querySelector(".sushi");
 const pizzaBtn = document.getElementById("pizza_btn");
 const sushiBtn = document.getElementById("sushi_btn");
 
-// render helper
+
 function render(data, box) {
   box.innerHTML = data.map((item, index) => `
-    <div class="pizza_item">
+    <div class="${item.category}_item">
       <img src="https://picsum.photos/id/${index + 50}/300/200" />
       <h3>${item.title}</h3>
       <p>${item.desc}</p>
@@ -41,11 +41,10 @@ function render(data, box) {
   `).join("");
 }
 
-// boshlanish
+
 render(items.filter(i => i.category === "pizza"), pizzaBox);
 render(items.filter(i => i.category === "sushi"), sushiBox);
 
-// buttonlar
 pizzaBtn.addEventListener("click", () => {
   pizzaSection.style.display = "block";
   sushiSection.style.display = "none";
